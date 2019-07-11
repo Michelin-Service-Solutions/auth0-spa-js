@@ -180,6 +180,18 @@ export default class Auth0Client {
     return cache && cache.decodedToken.claims;
   }
 
+  public async getIdToken(
+    options: GetTokenSilentlyOptions = {
+      audience: this.options.audience,
+      scope: this.options.scope || this.DEFAULT_SCOPE,
+      ignoreCache: false
+    }
+  ) {
+    await this.getTokenSilently(options);
+    const cache = this.cache.get(options);
+    return cache && cache.id_token;
+  }
+
   /**
    * ```js
    * await auth0.loginWithRedirect(options);
