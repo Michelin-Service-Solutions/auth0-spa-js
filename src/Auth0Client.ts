@@ -180,6 +180,15 @@ export default class Auth0Client {
     return cache && cache.decodedToken.claims;
   }
 
+  /**
+   * ```js
+   * const idToken = await auth0.getIdToken();
+   * ```
+   *
+   * Returns the id_token if available.
+   *
+   * @param options
+   */
   public async getIdToken(
     options: GetTokenSilentlyOptions = {
       audience: this.options.audience || 'default',
