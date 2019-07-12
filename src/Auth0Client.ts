@@ -182,7 +182,7 @@ export default class Auth0Client {
 
   public async getIdToken(
     options: GetTokenSilentlyOptions = {
-      audience: this.options.audience,
+      audience: this.options.audience || 'default',
       scope: this.options.scope || this.DEFAULT_SCOPE,
       ignoreCache: false
     }
